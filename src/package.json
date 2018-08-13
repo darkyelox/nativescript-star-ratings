@@ -20,6 +20,8 @@
         "plugin.tscwatch": "npm run tsc -- -w",
         "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
         "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+        "demo-ng.ios": "npm i && npm run tsc && cd ../demo-ng && tns run ios --syncAllFiles",
+        "demo-ng.android": "npm i && npm run tsc && cd ../demo-ng && tns run android --syncAllFiles",
         "demo.reset": "cd ../demo && rimraf platforms",
         "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-star-ratings && tns plugin add ../src",
         "clean": "cd ../demo && rm -rf hooks node_modules platforms && cd ../src && rm -rf node_modules && npm run plugin.link",
@@ -28,24 +30,9 @@
     "keywords": [
         "NativeScript",
         "JavaScript",
+        "Angular",
         "Android",
         "iOS"
-    ],
-    "author": {
-        "name": "Osei Fortune",
-        "email": "fortune.osei@yahoo.com"
-    },
-    "contributors": [
-        {
-            "name": "Sean Perkins",
-            "email": "sean@devonite.com",
-            "url": "https://github.com/sean-perkins"
-        },
-        {
-            "name": "Yeshwanth Alampalli",
-            "email": "yeshwanth.alampalli@gmail.com",
-            "url": "https://github.com/Alampalli-Yeshwanth"
-        }
     ],
     "bugs": {
         "url": "https://github.com/triniwiz/nativescript-star-ratings/issues"
@@ -53,13 +40,28 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/triniwiz/nativescript-star-ratings",
     "readmeFilename": "README.md",
+    "peerDependencies": {
+        "tns-core-modules": "^4"
+    },
     "devDependencies": {
-        "tns-core-modules": "^3.1.0",
-        "tns-platform-declarations": "^3.1.0",
-        "typescript": "~2.4.0",
+        "@angular/common": "^5.2.11",
+        "@angular/compiler": "^5.2.11",
+        "@angular/compiler-cli": "^5.2.11",
+        "@angular/core": "^5.2.11",
+        "@angular/forms": "^5.2.11",
+        "@angular/http": "^5.2.11",
+        "@angular/platform-browser": "^5.2.11",
+        "@angular/platform-browser-dynamic": "^5.2.11",
+        "@angular/router": "^5.2.11",
+        "nativescript-angular": "^5.3.0",
+        "rxjs": "~5.5.6",
+        "tns-core-modules": "^4.0.1",
+        "tns-platform-declarations": "^4.0.0",
+        "tslint": "^4.5.1",
+        "typescript": "^2.6.2",
+        "zone.js": "~0.8.12",
         "prompt": "^1.0.0",
-        "rimraf": "^2.5.0",
-        "tslint": "^5.0.0"
+        "rimraf": "^2.5.0"
     },
     "dependencies": {},
     "bootstrapper": "nativescript-plugin-seed"

@@ -1,0 +1,8 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<StackLayout width="100%" class="page" backgroundColor="gray">
+    <Label [text]="rate"></Label>
+    <StarRating filledColor="yellow" emptyBorderColor="green" filledBorderColor="green" fillMode="half"  [(ngModel)]="rate"></StarRating>
+</StackLayout>
