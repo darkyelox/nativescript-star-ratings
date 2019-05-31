@@ -3,6 +3,7 @@ import {
   maxProperty,
   valueProperty,
   emptyBorderColorProperty,
+  emptyBorderWidthProperty,
   filledBorderColorProperty,
   emptyColorProperty,
   filledColorProperty,
@@ -24,6 +25,7 @@ export class StarRating extends StarRatingBase {
     this.nativeView.settings.emptyColor = new Color('white').ios;
     this.nativeView.settings.filledBorderColor = new Color('blue').ios;
     this.nativeView.settings.filledColor = new Color('blue').ios;
+    this.nativeView.settings.emptyBorderWidth = 2
     this.nativeView.rating = 0;
     this.nativeView.settings.minTouchRating = 0;
   }
@@ -35,6 +37,15 @@ export class StarRating extends StarRatingBase {
     super.onUnloaded();
     this.nativeView.delegate = null;
   }
+
+  public onLayout(left: number, top: number, right: number, bottom: number) {
+    super.onLayout(left, top, right, bottom);
+    console.log('on Layout Stars', this.getActualSize().width, this.nativeView.settings.totalStars)
+    this.nativeView.settings.starSize = (this.getActualSize().width / this.nativeView.settings.totalStars ) - (this.nativeView.settings.starMargin / 2)
+    this.nativeView.update()
+    this.height = this.nativeView.intrinsicContentSize.height;
+  }
+
   public disposeNativeView() {
     this._delegate = null;
   }
@@ -56,6 +67,12 @@ export class StarRating extends StarRatingBase {
   set filledColor(color: string) {
     if (this.nativeView) {
       this.nativeView.settings.filledColor = new Color(color).ios;
+    }
+  }
+
+  set emptyBoderWidth(width: number) {
+    if (this.nativeView) {
+      this.nativeView.settings.emptyBorderWidth = width;
     }
   }
 
@@ -82,9 +99,10 @@ export class StarRating extends StarRatingBase {
   [maxProperty.setNative](max: number) {
     if (this.nativeView) {
       this.nativeView.settings.totalStars = max;
+      /* this.nativeView.settings.starSize = (this.getMeasuredWidth() / max) */
       this.nativeView.update();
-      this.width = this.nativeView.intrinsicContentSize.width;
-      this.height = this.nativeView.intrinsicContentSize.height;
+      /* this.width = this.nativeView.intrinsicContentSize.width;
+      this.height = this.nativeView.intrinsicContentSize.height; */
     }
   }
 }

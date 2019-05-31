@@ -65,6 +65,10 @@ export const emptyColorProperty = new CssProperty<Style, string>({
   name: 'emptyColor',
   cssName: 'empty-color'
 });
+export const emptyBorderWidthProperty = new Property<StarRatingBase, number>({
+  name: 'emptyBoderWidth',
+  defaultValue: 2
+});
 export const filledColorProperty = new CssProperty<Style, string>({
   name: 'filledColor',
   cssName: 'filled-color'
@@ -76,6 +80,7 @@ export const filledColorProperty = new CssProperty<Style, string>({
 // indicatorProperty.register(StarRatingBase);
 fillModeProperty.register(StarRatingBase);
 emptyBorderColorProperty.register(Style);
+emptyBorderWidthProperty.register(StarRatingBase);
 filledBorderColorProperty.register(Style);
 emptyColorProperty.register(Style);
 filledColorProperty.register(Style);

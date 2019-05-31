@@ -40,9 +40,6 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/triniwiz/nativescript-star-ratings",
     "readmeFilename": "README.md",
-    "peerDependencies": {
-        "tns-core-modules": "^4"
-    },
     "devDependencies": {
         "@angular/common": "^5.2.11",
         "@angular/compiler": "^5.2.11",

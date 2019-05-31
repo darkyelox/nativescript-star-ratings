@@ -34,6 +34,7 @@ export class StarRating extends StarRatingBase {
   private _emptyColor
   private _emptyBorderColor = 'yellow'
   private _filledBorderColor = 'yellow'
+  private _emptyBorderWidth = 0
 
   public createNativeView() {
     this.ratingBar = new MaterialRatingBar(this._context)
@@ -139,6 +140,10 @@ export class StarRating extends StarRatingBase {
     if(this.ratingBar) {
       this.ratingBar.setSupportSecondaryProgressTintList(ColorStateList.valueOf(new Color(color).android))
     }
+  }
+
+  set emptyBoderWidth(width: number) {
+    this._emptyBorderWidth = width
   }
 
   [fillModeProperty.getDefault]() {
